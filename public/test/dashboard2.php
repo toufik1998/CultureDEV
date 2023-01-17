@@ -137,7 +137,7 @@ include('../../app/view/view.php');
 					<!-- END page-header -->
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active">YouCode Game Products Board </li>
+						<li class="breadcrumb-item active">CultureDEV Blog || Categories </li>
 					</ol>
 					
 				</div>
