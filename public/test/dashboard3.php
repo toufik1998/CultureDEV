@@ -1,5 +1,8 @@
 <?php
 include('../../app/view/view.php');
+if(isset($_POST['posts-number'])){
+    $_SESSION['number-posts'] = $_POST['posts-number'];
+}
 
 ?>
 
@@ -137,19 +140,17 @@ include('../../app/view/view.php');
 					<!-- END page-header -->
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active">CultureDEV Blog || Posts </li>
+						<li class="breadcrumb-item active">CultureDEV Blog || Add Multiple Posts </li>
 					</ol>
 					
 				</div>
 				
-				<div class="ms-auto">
-				<a href="#modal-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Post</a>
-				<a href="#modal-multiple-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Multiple Post</a>
-	
-			</div>
+				<!-- <div class="ms-auto">
+				<a href="#modal-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Category</a>
+				</div> -->
 			</div>
 
-			<div class="container-fluid">
+			<!-- <div class="container-fluid">
 				<section>
 					<div class="row">
 						<div class="col-12 mt-3 mb-1">
@@ -192,10 +193,10 @@ include('../../app/view/view.php');
 						</div>
 					</div>
 				</section>
-			</div>
+			</div> -->
 			
 			<!-- section of table -->
-			<div class="container-fluid my-5 section-table">
+			<!-- <div class="container-fluid my-5 section-table">
 				<div class="row">
 					<div class="col">
 						<div class="shadow-4 rounded-5 overflow-hidden">
@@ -203,9 +204,7 @@ include('../../app/view/view.php');
 								<table class="table align-middle mb-0" style="background-color: #2F3843; border-radius: 1rem;">
 									<thead class="text-white-50" style="background-color:  #2F3843; border-radius: 1rem;">
 										<tr style="color: #8D949D;">
-										<th>Post Title</th>
-										<th>Post Category</th>
-										<th>Post Content</th>
+										<th>Category Name</th>
 										<th>Actions</th>
 										</tr>
 									</thead>
@@ -214,38 +213,24 @@ include('../../app/view/view.php');
 
                                     
 
-                                    <?php foreach($rows as $row) { ?>
+                                    <?php foreach($category_rows as $row) { ?>
                                         <tr style="color: #fff; border-bottom: black;">
                                                 <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img
-                                                            src="../../images/<?=$row['image']?>"
-                                                            alt=""
-                                                            style="width: 75px; height: 75px"
-                                                            class="rounded-circle bg-white"
-                                                        />
-                                                        <div class="ms-3">
-                                                            <p class="fw-bold mb-1"><?=$row['title']?></p>
-                                                        </div>
-                                                    </div>
+                                                    <p class="fw-normal mb-1 ms-2"><?=$row['category_name']?></p>
                                                 </td>
-                                                <td>
-                                                    <p class="fw-normal mb-1 ms-2"><?=$row['category']?></p>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-success rounded-pill ms-4"><?=$row['content']?></span>
-                                                </td>
+                                            
                                                 <td>
                                                     <form method="post" action="">
-                                                        <button type="button" id="update-btn" onclick="editTask(<?=$row['id']?>)" class="btn bg-success text-white btn-sm btn-rounded mt-2" data-bs-toggle="modal" data-bs-target="#modal-task">
+                                                        <button type="button" id="update-btn" onclick="editCategory(<?=$row['id']?>)" class="btn bg-success text-white btn-sm btn-rounded mt-2" data-bs-toggle="modal" data-bs-target="#modal-task">
                                                             <input type="hidden" name="update-id" value="<?=$row['id']?>">
                                                             <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
                                                         </button>
-                                                        <button type="submit" name="delete" id="buttonDelete" class="d-none">
-                                                            <input type="hidden" name="delete-id" value="<?=$row['id']?>">
+                                                        <button type="submit" name="delete-category" id="buttonDeleteCategory" class="d-none">
+                                                            <input type="hidden" name="deletecategory-id" value="<?=$row['id']?>">
+                                                            <i class="fa-solid fa-trash text-white"></i>
+
                                                         </button>
-                                                        <button type="submit"  onclick="deletePost(2)" name="delete" class="btn bg-danger text-white btn-sm btn-rounded mt-2 ">
-                                                            <input type="hidden" name="delete-id" value="<?=$row['id']?>">
+                                                        <button type="button"  onclick="deletePost(1)"  class="btn bg-danger text-white btn-sm btn-rounded mt-2 ">
                                                             <i class="fa-solid fa-trash text-white"></i>
                                                         </button>
                                                     </form> 
@@ -259,7 +244,55 @@ include('../../app/view/view.php');
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
+
+            
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <form action=""  method="POST" id="form-task" enctype="multipart/form-data">
+                            <?php for($i = 0; $i < $_SESSION['number-posts']; $i++ ){?>
+                                <div class="modal-header border-0 bg-white">
+                                    <h5 class="modal-title text-danger">Post <?=$i + 1?></h5>
+                                    <a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+                                </div>
+                                <div class="modal-body">
+                                        <!-- This Input Allows Storing Task Index  -->
+                                        <input type="hidden" id="product-id" name="product-id">
+                                        <div class="mb-3">
+                                            <label class="form-label text-white">Post Title</label>
+                                            <input type="text" name="post-title[]" class="form-control" id="post-title"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label text-white">Post Category</label>
+                                            <select class="form-select" name="category-options[]" id="post-status">
+                                                <option value="">Please select</option>
+                                                <option value="web">Web</option>
+                                                <option value="mobile">Mobile App</option>
+                                                <option value="desktop">Desktop</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label text-white">Post Image</label>
+                                            <input type="file" name="uploadfile[]" class="form-control" id="post-image"/>
+                                        </div>
+                                        <div class="mb-0">
+                                            <label class="form-label text-white">Post Content</label>
+                                            <textarea class="form-control" name="post-content[]" rows="10" id="post-content"></textarea>
+                                        </div>
+                                    
+                                </div>
+                            <?php }?>
+                            
+                            <div class="modal-footer border-0">
+                                <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
+                                <button type="submit" name="add-multiple-post" class="btn btn-primary task-action-btn" id="task-save-btn">Add All Posts</button>
+                            </div>
+                        </form>        
+                    </div>
+                </div>
+            </div>
 		</div>
 		<!-- END #content -->
 		
@@ -276,68 +309,23 @@ include('../../app/view/view.php');
 			<div class="modal-content">
 				<form action="" method="POST" id="form-task" enctype="multipart/form-data">
 					<div class="modal-header">
-						<h5 class="modal-title">Add Post</h5>
-						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
-					</div>
-					<div class="modal-body">
-							<!-- This Input Allows Storing Task Index  -->
-							<input type="hidden" id="product-id" name="product-id">
-							<div class="mb-3">
-								<label class="form-label">Post Title</label>
-								<input type="text" name="post-title" class="form-control" id="post-title"/>
-							</div>
-                            <div class="mb-3">
-								<label class="form-label">Post Category</label>
-								<select class="form-select" name="category-options" id="post-status">
-									<option value="">Please select</option>
-									<option value="web">Web</option>
-									<option value="mobile">Mobile App</option>
-									<option value="desktop">Desktop</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Post Image</label>
-								<input type="file" name="uploadfile" class="form-control" id="post-image"/>
-							</div>
-							<div class="mb-0">
-								<label class="form-label">Post Content</label>
-								<textarea class="form-control" name="post-content" rows="10" id="post-content"></textarea>
-							</div>
-						
-					</div>
-					<div class="modal-footer">
-						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="delete" class="d-none" id="buttonDelete"></a>
-						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</a>
-						<button type="submit" name="add" class="btn btn-primary task-action-btn" id="task-save-btn">ADD</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="modal fade" id="modal-multiple-task">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form action="./dashboard3.php" method="POST" id="form-task" enctype="multipart/form-data">
-					<div class="modal-header">
-						<h5 class="modal-title">Add Posts </h5>
+						<h5 class="modal-title">Add Category</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
 							<input type="hidden" id="product-id" name="update-id">
 							<div class="mb-3">
-								<label class="form-label">Post Numbers you want to add</label>
-								<input type="number" name="posts-number" class="form-control" id="posts-number" min="2"/>
+								<label class="form-label">Category Title</label>
+								<input type="text" name="category_name" class="form-control" id="category-name"/>
 							</div>
 							
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="add-number-posts" class="btn btn-primary task-action-btn" id="task-save-btn">ADD</button>
-						
+						<button type="submit" name="delete-category" class="d-none" id="buttonDelete"></a>
+						<button type="submit" name="update-category" class="btn btn-warning task-action-btn" id="task-update-btn">Update</a>
+						<button type="submit" name="add-category" class="btn btn-primary task-action-btn" id="task-save-btn">ADD</button>
 					</div>
 				</form>
 			</div>

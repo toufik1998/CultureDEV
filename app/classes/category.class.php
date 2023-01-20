@@ -3,17 +3,14 @@ require_once('../../app/modal/modal.php');
 
 class Alltraitment2 extends Connnexion{
 
-   public function __construct()
-   {
-    parent :: __construct();
-   }
+   
    public function getSpecifikData($query,$params=[]){
-        $statment=$this->dbs->prepare($query);
+        $statment=$this->connect()->prepare($query);
         $statment->execute($params);
         return $statment->fetchAll(PDO::FETCH_ASSOC);
    }
    public function getData($query, $params=[]){
-        $statment=$this->dbs->prepare($query);
+        $statment=$this->connect()->prepare($query);
         $statment->execute($params);
         return $statment->fetchAll(PDO::FETCH_ASSOC);
    }
@@ -23,16 +20,16 @@ class Alltraitment2 extends Connnexion{
 //     return $statment->rowCount();
 //    }
    public function insertData($query,$params=[]){
-    $statment=$this->dbs->prepare($query);
+    $statment=$this->connect()->prepare($query);
     $statment->execute($params);
     
    }
    public function updatetData($query,$params=[]){
-    $statment=$this->dbs->prepare($query);
+    $statment=$this->connect()->prepare($query);
     $statment->execute($params);
    }
    public function deleteData($query,$params=[]){
-    $statment=$this->dbs->prepare($query);
+    $statment=$this->connect()->prepare($query);
     $statment->execute($params);
    }
 }

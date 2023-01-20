@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
 
 </head>
 <body>
+
     <!--Start the navbar +-->
     <nav class="navbar navbar-expand-md navbar-light  fixed-top shadow">
         <div class="container-fluid">
@@ -34,16 +36,26 @@
                 <a class="nav-link" aria-current="page" href="#">Contact</a>
               </li>
             </ul>
+
+            <?php if(isset($_SESSION["userid"])) {?>
+              <form class="d-flex">
+              
+                <a href="./public/test/dashboard.php" class="btn">
+                  Dashboard
+                </a>
+              
+            </form> 
+            <?php } else { ?>
             <form class="d-flex">
-              <a href="public/test/dashboard.php" class="btn">
+              <a href="./public/test/dashboard.php" class="btn">
                 Login
               </a>
-              <a href="#" class="btn mx-3">
+              <a href="./public/test/signup.php" class="btn mx-3">
                 Sign Up
               </a>
               
             </form>
-            
+            <?php } ?>
           </div>
         </div>
     </nav> 
