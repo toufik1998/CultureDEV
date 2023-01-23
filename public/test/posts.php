@@ -50,7 +50,7 @@ include('../../app/view/view.php');
 						<a href="javascript:;" class="dropdown-item">Edit Profile</a>
 						<a href="javascript:;" class="dropdown-item">Setting</a>
 						<div class="dropdown-divider"></div>
-						<a href="../View/logout.php" class="dropdown-item">Log Out</a>
+						<a href="./logout.php" class="dropdown-item">Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -105,10 +105,10 @@ include('../../app/view/view.php');
 
 					<div class="navigation-side">
 						<ul>
-							<li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
-							<li><a href="./dashboard.php" class="btn">posts</a></li>
-							<!-- <li><a href="./categories.php" class="btn my-1">categories</a></li> -->
-							<!-- <li><a href="./posts.php" class="btn">posts</a></li> -->
+							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
+							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
+							<li><a href="./categories.php" class="btn my-1">categories</a></li>
+							<li><a href="./posts.php" class="btn">posts</a></li>
 						</ul>
 					</div>
 					
@@ -353,7 +353,7 @@ include('../../app/view/view.php');
 	<div class="modal fade" id="modal-multiple-task">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="./dashboard3.php" method="POST" id="form-task" enctype="multipart/form-data">
+				<form action="./multiple-post.php" method="POST" id="form-task" enctype="multipart/form-data">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Posts </h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>

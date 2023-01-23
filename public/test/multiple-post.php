@@ -53,7 +53,7 @@ if(isset($_POST['posts-number'])){
 						<a href="javascript:;" class="dropdown-item">Edit Profile</a>
 						<a href="javascript:;" class="dropdown-item">Setting</a>
 						<div class="dropdown-divider"></div>
-						<a href="../View/logout.php" class="dropdown-item">Log Out</a>
+						<a href="./logout.php" class="dropdown-item">Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -108,8 +108,11 @@ if(isset($_POST['posts-number'])){
 
 					<div class="navigation-side">
 						<ul>
-							<li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
-							<li><a href="./dashboard.php" class="btn">posts</a></li>
+							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
+							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
+
+							<li><a href="./categories.php" class="btn my-1">categories</a></li>
+							<li><a href="./posts.php" class="btn">posts</a></li>
 						</ul>
 					</div>
 					

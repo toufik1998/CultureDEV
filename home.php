@@ -40,12 +40,12 @@
             <?php if(isset($_SESSION["userid"])) {?>
               <form class="d-flex">
               
-                <a href="./public/test/dashboard.php" class="btn">
-                  Dashboard
-                </a>
-                <!-- <a href="./public/test/posts.php" class="btn">
+                <!-- <a href="./public/test/dashboard.php" class="btn">
                   Dashboard
                 </a> -->
+                <a href="./public/test/posts.php" class="btn">
+                  Dashboard
+                </a>
                 <!-- <li><a href="./categories.php" class="btn my-1">categories</a></li> -->
 							<!-- <li><a href="./posts.php" class="btn">posts</a></li> -->
               
