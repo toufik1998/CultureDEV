@@ -14,11 +14,7 @@ class Alltraitment extends Connnexion{
         $statment->execute($params);
         return $statment->fetchAll(PDO::FETCH_ASSOC);
    }
-//    public function getNumberRows($query,$params=[]){
-//     $statment=$this->dbs->prepare($query);
-//     $statment->execute($params);
-//     return $statment->rowCount();
-//    }
+   
    public function insertData($query,$params=[]){
     $statment=$this->connect()->prepare($query);
     $statment->execute($params);
@@ -31,6 +27,25 @@ class Alltraitment extends Connnexion{
    public function deleteData($query,$params=[]){
     $statment=$this->connect()->prepare($query);
     $statment->execute($params);
+   }
+
+   // Stistique functions
+   public function getNumberPosts($query){
+      $statment=$this->connect()->prepare($query);
+      $statment->execute();
+      return $statment->rowCount();
+   }
+
+   public function getNumberCategories($query){
+      $statment=$this->connect()->prepare($query);
+      $statment->execute();
+      return $statment->rowCount();
+   }
+
+   public function getNumberAdmins($query){
+      $statment=$this->connect()->prepare($query);
+      $statment->execute();
+      return $statment->rowCount();
    }
 }
 // don't forget to instanciate the class

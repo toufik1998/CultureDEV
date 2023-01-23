@@ -43,11 +43,16 @@
                 <a href="./public/test/dashboard.php" class="btn">
                   Dashboard
                 </a>
+                <!-- <a href="./public/test/posts.php" class="btn">
+                  Dashboard
+                </a> -->
+                <!-- <li><a href="./categories.php" class="btn my-1">categories</a></li> -->
+							<!-- <li><a href="./posts.php" class="btn">posts</a></li> -->
               
             </form> 
             <?php } else { ?>
             <form class="d-flex">
-              <a href="./public/test/dashboard.php" class="btn">
+              <a href="./public/test/signin.php" class="btn">
                 Login
               </a>
               <a href="./public/test/signup.php" class="btn mx-3">

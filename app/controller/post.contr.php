@@ -79,4 +79,10 @@ if(isset($_POST['openTask'])){
    $result = $myada->getData("SELECT * FROM posts WHERE id=?", array($current_post));
    echo json_encode($result);
 }
+
+// Statistiques
+
+$number_posts = $myada->getNumberPosts("SELECT * FROM posts");
+$number_categories = $myada->getNumberCategories("SELECT * FROM category");
+$number_admins = $myada->getNumberAdmins("SELECT * FROM user");
 ?>

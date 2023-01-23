@@ -107,6 +107,8 @@ include('../../app/view/view.php');
 						<ul>
 							<li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
 							<li><a href="./dashboard.php" class="btn">posts</a></li>
+							<!-- <li><a href="./categories.php" class="btn my-1">categories</a></li> -->
+							<!-- <li><a href="./posts.php" class="btn">posts</a></li> -->
 						</ul>
 					</div>
 					
@@ -166,27 +168,46 @@ include('../../app/view/view.php');
 								</div>
 								<div class="text-end">
 									<h3>
-										3
+										<?php echo $number_posts?>
 									</h3>
-									<p class="mb-0">Products</p>
+									<p class="mb-0">Posts</p>
 								</div>
 								</div>
 							</div>
+						   </div>
+						</div>
+						<div class="col-xl-3 col-sm-6 col-12 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between px-md-1">
+									<div class="align-self-center">
+										<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
+									</div>
+									<div class="text-end">
+										<h3>
+											<?php echo $number_categories?>
+										</h3>
+										<p class="mb-0">Categories</p>
+									</div>
+									</div>
+								</div>
 							</div>
 						</div>
-					<div class="col-xl-3 col-sm-6 col-12 mb-4">
-						<div class="card">
-							<div class="card-body">
-								<div class="d-flex justify-content-between px-md-1">
-								<div class="align-self-center">
-									<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
-								</div>
-								<div class="text-end">
-									<h3>
-										99$
-									</h3>
-									<p class="mb-0">Total Price</p>
-								</div>
+
+						<div class="col-xl-3 col-sm-6 col-12 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between px-md-1">
+									<div class="align-self-center">
+										<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
+									</div>
+									<div class="text-end">
+										<h3>
+											<?php echo $number_admins?>
+										</h3>
+										<p class="mb-0">Admins</p>
+									</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -194,8 +215,20 @@ include('../../app/view/view.php');
 				</section>
 			</div>
 			
+			<!-- section of Search for posts -->
+			<div class="container">
+				<div class="row">
+					<div class="col-5">
+						<form class="d-flex">
+								<input class="form-control me-2" type="search" placeholder="Search for post" aria-label="Search">
+								<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>	
+					</div>
+				</div>
+			</div>
+			
 			<!-- section of table -->
-			<div class="container-fluid my-5 section-table">
+			<div class="container-fluid my-2 section-table">
 				<div class="row">
 					<div class="col">
 						<div class="shadow-4 rounded-5 overflow-hidden">
