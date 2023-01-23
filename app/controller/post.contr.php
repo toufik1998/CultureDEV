@@ -50,7 +50,7 @@ if(isset($_POST["add-multiple-post"])){
 
  if(isset($_POST["show"])){
    $search=$_POST["search"];
-   $rows=$myada->getSpecifikData("SELECT * FROM posts WHERE name LIKE ? ",array("%".$_POST["search"]."%"));
+   $rows=$myada->getSpecifikData("SELECT * FROM posts WHERE title LIKE ? ",array("%".$_POST["search"]."%"));
  }else{
    $rows=$myada->getData("SELECT * FROM posts");
  }

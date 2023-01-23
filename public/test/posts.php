@@ -219,9 +219,9 @@ include('../../app/view/view.php');
 			<div class="container">
 				<div class="row">
 					<div class="col-5">
-						<form class="d-flex">
-								<input class="form-control me-2" type="search" placeholder="Search for post" aria-label="Search">
-								<button class="btn btn-outline-success" type="submit">Search</button>
+						<form action="" method="POST" class="d-flex">
+							<input class="form-control me-2" name="search" type="search" placeholder="Search for post" aria-label="Search">
+							<button class="btn btn-outline-success" name="show" type="submit">Search</button>
 						</form>	
 					</div>
 				</div>

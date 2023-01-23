@@ -17,7 +17,7 @@ $myada=new Alltraitment2();
 
  if(isset($_POST["show-category"])){
    $search=$_POST["search-category"];
-   $category_rows=$myada->getSpecifikData("SELECT * FROM posts WHERE name LIKE ? ",array("%".$_POST["search"]."%"));
+   $category_rows=$myada->getSpecifikData("SELECT * FROM category WHERE category_name LIKE ? ",array("%".$_POST["search-category"]."%"));
  }else{
    $category_rows=$myada->getData("SELECT * FROM category");
  }

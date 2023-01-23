@@ -9,6 +9,7 @@ class Alltraitment extends Connnexion{
         $statment->execute($params);
         return $statment->fetchAll(PDO::FETCH_ASSOC);
    }
+
    public function getData($query, $params=[]){
         $statment=$this->connect()->prepare($query);
         $statment->execute($params);
@@ -20,10 +21,12 @@ class Alltraitment extends Connnexion{
     $statment->execute($params);
     
    }
+
    public function updatetData($query,$params=[]){
     $statment=$this->connect()->prepare($query);
     $statment->execute($params);
    }
+   
    public function deleteData($query,$params=[]){
     $statment=$this->connect()->prepare($query);
     $statment->execute($params);
