@@ -36,8 +36,4 @@ class Alltraitment2 extends Connnexion{
 // don't forget to instanciate the class
 
 
-
-
-
-
 ?>

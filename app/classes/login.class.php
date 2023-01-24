@@ -18,7 +18,6 @@ class Login extends Connnexion{
         if(!$stmt->execute(array($userName, $pwdHashed[0]["password"]))){
             $stmt = null;
             header('location:../../public/test/signin.php');
-            $_SESSION['somethingwrong'] = 'Sorry you entered an invalid information';
 
             exit();
         }
@@ -26,37 +25,26 @@ class Login extends Connnexion{
         if($stmt->rowCount() == 0){
             $stmt = null;
             // header('location:../../public/home.php');
-            header('location:../../public/test/signin.php');
-            $_SESSION['usernotfound'] = 'Sorry! user not found';
+            
+                header('location:../../public/test/signin.php');
+                $_SESSION['usernotfound'] = 'Sorry! user not found';
+    
+            
 
             exit();
         }
 
 
         if($checkPwd == false){
-            $stmt = null;
             // header('Location: ../index.php?wrongpassword');
+            $_SESSION['wrongpassword'] = 'you entered an invalid information';
             header('location:../../public/test/signin.php');
-            $_SESSION['wrongpassword'] = 'wrong password';
-            exit();
-        }elseif($checkPwd == true){
-
-            // if(!$stmt->execute(array($userName, $pwdHashed[0]["password"]))){
-            //     $stmt = null;
-            //     header('location:../../public/test/signin.php');
-            //     $_SESSION['somethingwrong'] = 'Something wrong please repeat your entered information';
-            //     exit();
-            // }
-    
-            // if($stmt->rowCount() == 0){
-            //     $stmt = null;
-            //     // header('Location: ../index.php?usernotfound');
-            //     $_SESSION['usernotfound'] = 'Sorry! user not found';
-            //     exit();
-            // }
+            $stmt = null;
+            // exit();
+        }else if($checkPwd == true){
 
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            session_start();
+            // session_start();
             $_SESSION["userid"] = $user[0]["id"];
             $_SESSION['userlogin'] = 'hello';
              echo $_SESSION['userid']; 

@@ -27,10 +27,10 @@ if(isset($_POST['posts-number'])){
 	<!-- BEGIN #app -->
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 		<!-- BEGIN #header -->
-		<div id="header" class="app-header">
+		<div id="header" class="app-header" style="background-color: #2D353C;">
 			<!-- BEGIN navbar-header -->
 			<div class="navbar-header">
-				<a href="#" class="navbar-brand">NanoTech</a>
+				<a href="#" class="navbar-brand text-warning">NanoTech</a>
 				<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -45,8 +45,8 @@ if(isset($_POST['posts-number'])){
 					<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
 						<img src="../../images/user-15.jpg" alt="">
 						<span>
-                            <span class="d-none d-md-inline">Toufik Shima</span>
-							<b class="caret"></b>
+                            <span class="d-none d-md-inline text-warning">Toufik Shima</span>
+							<b class="caret text-warning"></b>
 						</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-end me-1">
@@ -111,8 +111,8 @@ if(isset($_POST['posts-number'])){
 							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
 							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
 
-							<li><a href="./categories.php" class="btn my-1">categories</a></li>
-							<li><a href="./posts.php" class="btn">posts</a></li>
+							<li><a href="./categories.php" class="btn my-1" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
+							<li><a href="./posts.php" class="btn" style="width: 100%; border-bottom-right-radius: 0;">posts</a></li>
 						</ul>
 					</div>
 					
@@ -137,13 +137,13 @@ if(isset($_POST['posts-number'])){
 			<div class="d-flex align-items-center mb-3">
 				<div>
 					<!-- BEGIN page-header -->
-					<h1 class="page-header mb-0" style="color: #1F4690">
+					<h1 class="page-header mb-0" style="color: #ff8906">
 						Hi, Welcome Toufik Shima
 					</h1>
 					<!-- END page-header -->
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active">CultureDEV Blog || Add Multiple Posts </li>
+						<li class="breadcrumb-item"><a href="javascript:;" style="color: #f5be7f">Home</a></li>
+						<li class="breadcrumb-item active" style="color: #ff8906">CultureDEV Blog || Add Multiple Posts </li>
 					</ol>
 					
 				</div>
@@ -252,8 +252,8 @@ if(isset($_POST['posts-number'])){
             
 
             <div class="container">
-                <div class="row">
-                    <div class="col-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-8">
                         <form action=""  method="POST" id="form-task" enctype="multipart/form-data">
                             <?php for($i = 0; $i < $_SESSION['number-posts']; $i++ ){?>
                                 <div class="modal-header border-0 bg-white">

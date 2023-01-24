@@ -16,12 +16,21 @@
 
         &:hover{
             box-shadow: rgba(252, 247, 247, 0.849) 0px 5px 15px;
-            transform: skew(7deg);
-            -webkit-transform: skew(7deg);
-            -moz-transform: skew(7deg);
-            -ms-transform: skew(7deg);
-            -o-transform: skew(7deg);
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
             cursor: pointer;
+
+            @include respond(tablet) {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+            }
+    
         }
     }
 }

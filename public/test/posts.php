@@ -24,14 +24,14 @@ include('../../app/view/view.php');
 	<!-- BEGIN #app -->
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
 		<!-- BEGIN #header -->
-		<div id="header" class="app-header">
+		<div id="header" class="app-header" style="background-color: #2D353C;">
 			<!-- BEGIN navbar-header -->
 			<div class="navbar-header">
-				<a href="#" class="navbar-brand">NanoTech</a>
+				<a href="#" class="navbar-brand text-warning">NanoTech</a>
 				<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="icon-bar bg-warning"></span>
+					<span class="icon-bar bg-warning"></span>
+					<span class="icon-bar bg-warning"></span>
 				</button>
 			</div>
 			<!-- END navbar-header -->
@@ -42,8 +42,8 @@ include('../../app/view/view.php');
 					<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
 						<img src="../../images/user-15.jpg" alt="">
 						<span>
-                            <span class="d-none d-md-inline">Toufik Shima</span>
-							<b class="caret"></b>
+                            <span class="d-none d-md-inline text-warning">Toufik Shima</span>
+							<b class="caret text-warning"></b>
 						</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-end me-1">
@@ -107,8 +107,8 @@ include('../../app/view/view.php');
 						<ul>
 							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
 							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
-							<li><a href="./categories.php" class="btn my-1">categories</a></li>
-							<li><a href="./posts.php" class="btn">posts</a></li>
+							<li><a href="./categories.php" class="btn  my-1" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
+							<li><a href="./posts.php" class="btn " style="width: 100%; border-bottom-right-radius: 0;">go to posts</a></li>
 						</ul>
 					</div>
 					
@@ -133,20 +133,20 @@ include('../../app/view/view.php');
 			<div class="d-flex align-items-center mb-3">
 				<div>
 					<!-- BEGIN page-header -->
-					<h1 class="page-header mb-0" style="color: #1F4690">
+					<h1 class="page-header mb-0" style="color: #ff8906">
 						Hi, Welcome Toufik Shima
 					</h1>
 					<!-- END page-header -->
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-						<li class="breadcrumb-item active">CultureDEV Blog || Posts </li>
+						<li class="breadcrumb-item"><a href="../../home.php" style="color: #f5be7f">Home</a></li>
+						<li class="breadcrumb-item active" style="color: #ff8906">CultureDEV Blog || Posts </li>
 					</ol>
 					
 				</div>
 				
 				<div class="ms-auto">
-				<a href="#modal-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Post</a>
-				<a href="#modal-multiple-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Multiple Post</a>
+				<a href="#modal-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill mb-2" style="background-color: #ff8906"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Post</a>
+				<a href="#modal-multiple-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill mb-2" style="background-color: #ff8906"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Multiple Post</a>
 	
 			</div>
 			</div>
@@ -155,7 +155,7 @@ include('../../app/view/view.php');
 				<section>
 					<div class="row">
 						<div class="col-12 mt-3 mb-1">
-							<h5 class="text-uppercase">Minimal Statistics</h5>
+							<h5 class="text-uppercase" style="color: #ff8906">Minimal Statistics</h5>
 						</div>
 					</div>
 					<div class="row">
@@ -164,7 +164,8 @@ include('../../app/view/view.php');
 							<div class="card-body">
 								<div class="d-flex justify-content-between px-md-1">
 								<div class="align-self-center">
-									<i class="fa-solid fa-chart-bar text-info fa-3x"></i>
+									<!-- <i class="fa-solid fa-chart-bar text-info fa-3x"></i> -->
+									<i class="fa-brands fa-readme text-info fa-3x"></i>
 								</div>
 								<div class="text-end">
 									<h3>
@@ -181,7 +182,8 @@ include('../../app/view/view.php');
 								<div class="card-body">
 									<div class="d-flex justify-content-between px-md-1">
 									<div class="align-self-center">
-										<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
+										<!-- <i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i> -->
+										<i class="fa-solid fa-chart-bar text-danger fa-3x"></i>
 									</div>
 									<div class="text-end">
 										<h3>
@@ -199,7 +201,8 @@ include('../../app/view/view.php');
 								<div class="card-body">
 									<div class="d-flex justify-content-between px-md-1">
 									<div class="align-self-center">
-										<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
+										<!-- <i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i> -->
+										<i class="fa-solid fa-lock-open text-warning fa-3x"></i>
 									</div>
 									<div class="text-end">
 										<h3>
@@ -218,10 +221,10 @@ include('../../app/view/view.php');
 			<!-- section of Search for posts -->
 			<div class="container">
 				<div class="row">
-					<div class="col-5">
+					<div class="col-sm-12 col-md-7 col-lg-5">
 						<form action="" method="POST" class="d-flex">
 							<input class="form-control me-2" name="search" type="search" placeholder="Search for post" aria-label="Search">
-							<button class="btn btn-outline-success" name="show" type="submit">Search</button>
+							<button class="btn btn-outline-warning" name="show" type="submit">Search</button>
 						</form>	
 					</div>
 				</div>

@@ -29,7 +29,7 @@ if(isset($_POST["add-multiple-post"])){
    foreach($post_title as $index=>$post_titles){
       $myada->insertData('INSERT INTO posts(category,title,content,image) VALUES(?,?,?,?)',array($category[$index],$post_titles,$post_content[$index],$filename[$index]));
       move_uploaded_file($tempname[$index], "../../images/" . $filename[$index]);
-      header('Location: ../../public/test/dashboard.php');
+      header('Location: ../../public/test/posts.php');
       //  $data=array($post_titles,$post_content[$index],$filename[$index],$category[$index]);
       //  $result=Post::insert($data);
       //  if($result==='ok'){

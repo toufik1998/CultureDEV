@@ -34,3 +34,24 @@
                  0 36px 36px rgba(0,0,0,.15);
 
 }
+
+@mixin respond ($breakpoint) {
+
+    // $breakpoint is simply a variable that can have several values
+
+    @if $breakpoint==tablet {
+
+        // here `laptop` is the value of $breakpoint
+        // when call laptop, we mean the following piece of code        
+
+    @media only screen and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+}

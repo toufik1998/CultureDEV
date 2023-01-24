@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../../app/classes/login.class.php');
 
     class Logincontr extends Login{
