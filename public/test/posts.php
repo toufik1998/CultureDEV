@@ -1,25 +1,10 @@
 <?php
 include('../../app/view/view.php');
+include('../components/header.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-	<meta charset="utf-8" />
-	<title>NanoTech | Dashboard</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
 	
-	<!-- ================== BEGIN core-css ================== -->
-    <link rel="stylesheet" href="../../public/assets/css/vendor.min.css">
-    <link rel="stylesheet" href="../../public/assets/css/default/app.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="../../public/sass/main.css">
-	<!-- ================== END core-css ================== -->
-</head>
-<body>	
 
 	<!-- BEGIN #app -->
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
@@ -104,19 +89,34 @@ include('../../app/view/view.php');
 					</div>
 
 					<div class="navigation-side">
+	
+					
 						<ul>
-							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
-							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
-							<li><a href="./categories.php" class="btn  my-1" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
-							<li><a href="./posts.php" class="btn " style="width: 100%; border-bottom-right-radius: 0;">go to posts</a></li>
+							
+							<li><a href="./categories.php" class="btn category-btn  my-1" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
+							<li><a href="./posts.php" class="btn post-btn" style="width: 100%; border-bottom-right-radius: 0;">go to posts</a></li>
+						
 						</ul>
+
+						<a href="./categories.php" class="icon-post text-center mb-3">
+							<i class="fa-solid fa-blog  fa-2x text-warning"></i>
+						</a>
+						<a href="./posts.php" class="icon-post2 text-center">
+							<i class="fa-brands fa-typo3 fa-2x text-warning"></i>
+						</a>
 					</div>
 					
 					
 
 					<!-- BEGIN minify-button -->
 					<div class="menu-item d-flex">
-						<a href="javascript:;" class="app-sidebar-minify-btn ms-auto" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+						<a href="javascript:;"  class="app-sidebar-minify-btn ms-auto toggler-btn" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+					</div>
+					<!-- END minify-button -->
+
+					<!-- BEGIN minify-button -->
+					<div class="menu-item d-flex">
+						<a href="javascript:;"  class="app-sidebar-minify-btn ms-auto toggler-btn2" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
 					</div>
 					<!-- END minify-button -->
 				</div>
@@ -164,7 +164,6 @@ include('../../app/view/view.php');
 							<div class="card-body">
 								<div class="d-flex justify-content-between px-md-1">
 								<div class="align-self-center">
-									<!-- <i class="fa-solid fa-chart-bar text-info fa-3x"></i> -->
 									<i class="fa-brands fa-readme text-info fa-3x"></i>
 								</div>
 								<div class="text-end">
@@ -182,7 +181,6 @@ include('../../app/view/view.php');
 								<div class="card-body">
 									<div class="d-flex justify-content-between px-md-1">
 									<div class="align-self-center">
-										<!-- <i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i> -->
 										<i class="fa-solid fa-chart-bar text-danger fa-3x"></i>
 									</div>
 									<div class="text-end">
@@ -201,7 +199,6 @@ include('../../app/view/view.php');
 								<div class="card-body">
 									<div class="d-flex justify-content-between px-md-1">
 									<div class="align-self-center">
-										<!-- <i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i> -->
 										<i class="fa-solid fa-lock-open text-warning fa-3x"></i>
 									</div>
 									<div class="text-end">
@@ -247,8 +244,6 @@ include('../../app/view/view.php');
 									</thead>
 									<tbody>
                                         
-
-                                    
 
                                     <?php foreach($rows as $row) { ?>
                                         <tr style="color: #fff; border-bottom: black;">
@@ -326,9 +321,11 @@ include('../../app/view/view.php');
 								<label class="form-label">Post Category</label>
 								<select class="form-select" name="category-options" id="post-status">
 									<option value="">Please select</option>
-									<option value="web">Web</option>
-									<option value="mobile">Mobile App</option>
-									<option value="desktop">Desktop</option>
+									<?php foreach($category_rows as $row) { ?>
+										<option value=<?= $row['category_name'] ?>> <?= $row['category_name'] ?> </option>
+										<!-- <option value="mobile">Mobile App</option>
+										<option value="desktop">Desktop</option> -->
+									<?php } ?>
 								</select>
 							</div>
 							<div class="mb-3">
@@ -381,11 +378,6 @@ include('../../app/view/view.php');
 	</div>
 	
 
-	<!-- ================== BEGIN core-js ================== -->
-    <script src="../../public/assets/js/vendor.min.js"></script>
-    <script src="../../public/assets/js/app.min.js"></script>
-	<!-- ================== END core-js ================== -->
-	<script src="../../public/main.js"></script>
-	
-</body>
-</html>
+<?php 
+include('../components/footer.php');
+?>

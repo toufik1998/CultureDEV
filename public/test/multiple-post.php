@@ -1,28 +1,13 @@
 <?php
 include('../../app/view/view.php');
+include('../components/header.php');
+
 if(isset($_POST['posts-number'])){
     $_SESSION['number-posts'] = $_POST['posts-number'];
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-	<meta charset="utf-8" />
-	<title>NanoTech | Dashboard</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
 	
-	<!-- ================== BEGIN core-css ================== -->
-    <link rel="stylesheet" href="../../public/assets/css/vendor.min.css">
-    <link rel="stylesheet" href="../../public/assets/css/default/app.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="../../public/sass/main.css">
-	<!-- ================== END core-css ================== -->
-</head>
-<body>	
 
 	<!-- BEGIN #app -->
 	<div id="app" class="app app-header-fixed app-sidebar-fixed">
@@ -108,19 +93,32 @@ if(isset($_POST['posts-number'])){
 
 					<div class="navigation-side">
 						<ul>
-							<!-- <li><a href="./dashboard2.php" class="btn my-1">categories</a></li>
-							<li><a href="./dashboard.php" class="btn">posts</a></li> -->
 
-							<li><a href="./categories.php" class="btn my-1" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
-							<li><a href="./posts.php" class="btn" style="width: 100%; border-bottom-right-radius: 0;">posts</a></li>
+							<li><a href="./categories.php" class="btn my-1 category-btn" style="width: 100%; border-bottom-right-radius: 0;">categories</a></li>
+							<li><a href="./posts.php" class="btn post-btn" style="width: 100%; border-bottom-right-radius: 0;">posts</a></li>
+						
 						</ul>
+
+						<a href="./categories.php" class="icon-post text-center mb-3">
+							<i class="fa-solid fa-blog  fa-2x text-warning"></i>
+						</a>
+						<a href="./posts.php" class="icon-post2 text-center">
+							<i class="fa-brands fa-typo3 fa-2x text-warning"></i>
+						</a>
+
 					</div>
 					
 					
 
 					<!-- BEGIN minify-button -->
 					<div class="menu-item d-flex">
-						<a href="javascript:;" class="app-sidebar-minify-btn ms-auto" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+						<a href="javascript:;" class="app-sidebar-minify-btn ms-auto toggler-btn" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+					</div>
+					<!-- END minify-button -->
+
+					<!-- BEGIN minify-button -->
+					<div class="menu-item d-flex">
+						<a href="javascript:;"  class="app-sidebar-minify-btn ms-auto toggler-btn2" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
 					</div>
 					<!-- END minify-button -->
 				</div>
@@ -148,108 +146,8 @@ if(isset($_POST['posts-number'])){
 					
 				</div>
 				
-				<!-- <div class="ms-auto">
-				<a href="#modal-task" id="addButton" data-bs-toggle="modal" class="btn btn-rounded text-white px-4 rounded-pill" style="background-color: #663DAD"><i class="fa fa-plus fa-lg me-2 ms-n2 text-white"></i> Add Category</a>
-				</div> -->
 			</div>
 
-			<!-- <div class="container-fluid">
-				<section>
-					<div class="row">
-						<div class="col-12 mt-3 mb-1">
-							<h5 class="text-uppercase">Minimal Statistics</h5>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xl-3 col-sm-6 col-12 mb-4">
-							<div class="card">
-							<div class="card-body">
-								<div class="d-flex justify-content-between px-md-1">
-								<div class="align-self-center">
-									<i class="fa-solid fa-chart-bar text-info fa-3x"></i>
-								</div>
-								<div class="text-end">
-									<h3>
-										3
-									</h3>
-									<p class="mb-0">Products</p>
-								</div>
-								</div>
-							</div>
-							</div>
-						</div>
-					<div class="col-xl-3 col-sm-6 col-12 mb-4">
-						<div class="card">
-							<div class="card-body">
-								<div class="d-flex justify-content-between px-md-1">
-								<div class="align-self-center">
-									<i class="fa-solid fa-money-check-dollar text-warning fa-3x"></i>
-								</div>
-								<div class="text-end">
-									<h3>
-										99$
-									</h3>
-									<p class="mb-0">Total Price</p>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div> -->
-			
-			<!-- section of table -->
-			<!-- <div class="container-fluid my-5 section-table">
-				<div class="row">
-					<div class="col">
-						<div class="shadow-4 rounded-5 overflow-hidden">
-							<div class="table-responsive">
-								<table class="table align-middle mb-0" style="background-color: #2F3843; border-radius: 1rem;">
-									<thead class="text-white-50" style="background-color:  #2F3843; border-radius: 1rem;">
-										<tr style="color: #8D949D;">
-										<th>Category Name</th>
-										<th>Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-                                        
-
-                                    
-
-                                    <?php foreach($category_rows as $row) { ?>
-                                        <tr style="color: #fff; border-bottom: black;">
-                                                <td>
-                                                    <p class="fw-normal mb-1 ms-2"><?=$row['category_name']?></p>
-                                                </td>
-                                            
-                                                <td>
-                                                    <form method="post" action="">
-                                                        <button type="button" id="update-btn" onclick="editCategory(<?=$row['id']?>)" class="btn bg-success text-white btn-sm btn-rounded mt-2" data-bs-toggle="modal" data-bs-target="#modal-task">
-                                                            <input type="hidden" name="update-id" value="<?=$row['id']?>">
-                                                            <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
-                                                        </button>
-                                                        <button type="submit" name="delete-category" id="buttonDeleteCategory" class="d-none">
-                                                            <input type="hidden" name="deletecategory-id" value="<?=$row['id']?>">
-                                                            <i class="fa-solid fa-trash text-white"></i>
-
-                                                        </button>
-                                                        <button type="button"  onclick="deletePost(1)"  class="btn bg-danger text-white btn-sm btn-rounded mt-2 ">
-                                                            <i class="fa-solid fa-trash text-white"></i>
-                                                        </button>
-                                                    </form> 
-                                                </td>
-                                            </tr>
-                                    <?php }?>    
-
-									</tbody>
-								</table>
-							</div>	
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-            
 
             <div class="container">
                 <div class="row justify-content-center">
@@ -336,11 +234,6 @@ if(isset($_POST['posts-number'])){
 	</div>
 	
 
-	<!-- ================== BEGIN core-js ================== -->
-    <script src="../../public/assets/js/vendor.min.js"></script>
-    <script src="../../public/assets/js/app.min.js"></script>
-	<!-- ================== END core-js ================== -->
-	<script src="../../public/main.js"></script>
-	
-</body>
-</html>
+<?php 
+include('../components/footer.php');
+?>
